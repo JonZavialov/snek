@@ -1,6 +1,11 @@
 class snake:
     def __init__(self):
-        self.previous = ""  
+        self.previous = ""
+        self.size = 3
+        self.acceptableKeys = ['w','a','s','d']
+
+    def setSize(self,size):
+        self.size = 3
 
     def setPrevious(self,content):
         self.previous = content
@@ -8,8 +13,9 @@ class snake:
     def getPrevious(self):
         return self.previous
 
-    def move(self,key):
-       if(key == self.getPrevious()):
+    def parseMove(self,key):
+        #todo: check if one of the accpetble keys is pressed
+        if(key == self.getPrevious()):
            return
-       
-       self.setPrevious(key)
+        print(key.char)
+        self.setPrevious(key)
