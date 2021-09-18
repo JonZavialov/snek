@@ -6,7 +6,7 @@ from pynput.keyboard import Key, Listener
 import time
 
 snake = snake()
-board = board(5)
+board = board(12,5)
 
 def listener():
     """Collect events until released"""
