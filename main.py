@@ -4,6 +4,8 @@ from snake import *
 from pynput.keyboard import Key, Listener
 
 snake = snake()
+board = board(5)
+board.render()
 
 def on_press(key):
     snake.move(key)

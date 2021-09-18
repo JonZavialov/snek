@@ -1,24 +1,27 @@
 class board:
-    def render(dimensions):
+    def __init__(self, size):
+        self.dimensions = size
+    
+    def render(self):
         """renders the board with the provided dimensions"""
-        def renderHoriz(dimensions):
-            """renders horizontal border with the provided dimensions"""
-            print('+-', end='')
-            for i in range (dimensions):
-                print('--', end='')
-            print('-+')
-
-        def renderVert(dimensions):
-            """renders vertical border with the provided dimensions"""
-            for i in range (dimensions):
-                print('| ', end='')
-                for f in range (dimensions):
-                    print('  ', end='')
-                print(' |')
-        
         #top
-        renderHoriz(dimensions)
+        self.renderHoriz()
         #sides
-        renderVert(dimensions)
+        self.renderVert()
         #bottom
-        renderHoriz(dimensions)
+        self.renderHoriz()
+
+    def renderHoriz(self):
+        """renders horizontal border with the provided dimensions"""
+        print('+-', end='')
+        for i in range (self.dimensions):
+            print('--', end='')
+        print('-+')
+
+    def renderVert(self):
+        """renders vertical border with the provided dimensions"""
+        for i in range (self.dimensions):
+            print('| ', end='')
+            for f in range (self.dimensions):
+                print('  ', end='')
+            print(' |')
