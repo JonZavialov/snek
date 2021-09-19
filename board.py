@@ -3,32 +3,53 @@ class board:
         self.board = """"""
         self.X = sizeX
         self.Y = sizeY
-    
+        self.arr = []
+
+        for y in range (sizeY):
+            arr = []
+            for x in range (sizeX):
+                arr.append(' ')
+            self.arr.append(arr)
+
+        board.setBoard(self)
+
     def render(self):
-        """renders the board"""
+        print(self.getBoard())
+
+    def setBoard(self):
+        """sets the board"""
+        self.clearBoard()
         #top
         self.setHoriz()
         #sides
         self.setVert()
         #bottom
         self.setHoriz()
-        
-        print(self.getBoard())
 
     def setHoriz(self):
-        """renders horizontal border"""
+        """sets horizontal border"""
         self.board +=  '+'
         for i in range (self.X):
             self.board += '-'
-        self.board += '+\n' 
+        self.board += '+\n'
 
     def setVert(self):
-        """renders vertical border"""
-        for i in range (self.Y):
+        """sets vertical border"""
+        for y in range (self.Y):
             self.board += '|'
-            for f in range (self.X):
-                self.board += ' '
+            for x in range (self.X):
+                self.board += self.arr[y][x]
             self.board += '|\n'
+
+    def clearBoard(self):
+        self.board = """"""
 
     def getBoard(self):
         return self.board
+
+    def setBoardPos(self,x,y,content):
+        self.arr[y][x] = content
+        self.setBoard()
+
+    def getBoardPos(self,x,y):
+        return self.arr[y][x]

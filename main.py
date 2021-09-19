@@ -1,12 +1,14 @@
+from snake import *
 from board import *
+from game import *
 import os
 import threading
-from snake import *
 from pynput.keyboard import Key, Listener
 import time
 
 snake = snake()
-board = board(12,5)
+board = board(24,10)
+game = game(snake,board)
 
 def listener():
     """Collect events until released"""
@@ -16,14 +18,12 @@ def listener():
     with Listener(on_press=on_press) as listener:
         listener.join()
 
-def game():
+def runner():
+    board.setBoardPos(5,5,"*")
     board.render()
-        
-    while True:
-        print('seouse')
-        time.sleep(1)
+    board.setBoardPos(5,6,"*")
+    board.render()
 
 listenerThread = threading.Thread(target=listener)
 listenerThread.start()
-gameThread = threading.Thread(target=game)
-gameThread.start()
+runner()

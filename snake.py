@@ -4,7 +4,6 @@ class snake:
         self.size = 3
         self.acceptableKeys = ['w','a','s','d']
         self.directions = ['up','left','down','right']
-        self.direction = "right"
 
     def setSize(self,size):
         self.size = 3
@@ -17,7 +16,6 @@ class snake:
 
     def parseMove(self,key):
         """parses key press events"""
-        
         try:
             #check for appectable key press
             keyPressed = False
@@ -31,5 +29,4 @@ class snake:
            return
 
         self.direction = self.directions[self.acceptableKeys.index(key.char)]
-        print(self.direction)
         self.setPrevious(key)
