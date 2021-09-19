@@ -19,9 +19,7 @@ def listener():
         listener.join()
 
 def runner():
-    board.setBoardPos(5,5,"*")
-    board.render()
-    board.setBoardPos(5,6,"*")
+    game.genSnake()
     board.render()
 
 listenerThread = threading.Thread(target=listener)

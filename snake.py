@@ -1,7 +1,9 @@
 class snake:
     def __init__(self):
         self.previous = ""
-        self.size = 3
+        self.length = 3
+        self.headX = 10
+        self.headY = 5
         self.acceptableKeys = ['w','a','s','d']
         self.directions = ['up','left','down','right']
 
@@ -13,6 +15,15 @@ class snake:
 
     def getPrevious(self):
         return self.previous
+    
+    def getLength(self):
+        return self.length
+
+    def getX(self):
+        return self.headX
+
+    def getY(self):
+        return self.headY
 
     def parseMove(self,key):
         """parses key press events"""
