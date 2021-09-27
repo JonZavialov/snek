@@ -1,3 +1,5 @@
+from boardNode import *
+
 class board:
     def __init__(self, sizeX, sizeY):
         self.board = """"""
@@ -8,7 +10,7 @@ class board:
         for y in range (sizeY):
             arr = []
             for x in range (sizeX):
-                arr.append(' ')
+                arr.append(boardNode())
             self.arr.append(arr)
 
         board.setBoard(self)
@@ -38,7 +40,7 @@ class board:
         for y in range (self.Y):
             self.board += '|'
             for x in range (self.X):
-                self.board += self.arr[y][x]
+                self.board += self.arr[y][x].getContent()
             self.board += '|\n'
 
     def clearBoard(self):
@@ -48,8 +50,8 @@ class board:
         return self.board
 
     def setBoardPos(self,x,y,content):
-        self.arr[y][x] = content
+        self.arr[y][x].setContent(content)
         self.setBoard()
 
     def getBoardPos(self,x,y):
-        return self.arr[y][x]
+        return self.arr[y][x].getContent()
