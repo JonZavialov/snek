@@ -1,3 +1,5 @@
+# Jonathan Zavialov :)
+
 class boardNode:
   def __init__(self):
     self.direction = "right"
